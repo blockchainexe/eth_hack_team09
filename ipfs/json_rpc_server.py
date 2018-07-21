@@ -9,6 +9,7 @@ from jsonrpcserver import methods
 
 @methods.add
 def call_func(inference_function_hash, data_csv_hash):
+    api = ipfsapi.connect('127.0.0.1', 5001)
     model_function = api.cat(inference_function_hash).decode()
     exec(model_function, globals())
 
@@ -27,11 +28,12 @@ def call_func(inference_function_hash, data_csv_hash):
     return api.add_json(json.dumps(result))
 
 
-class TestHttpServer(BaseHTTPRequestHandler):
+class IpfsHttpServer(BaseHTTPRequestHandler):
     def do_POST(self):
         # Process request
         request = self.rfile.read(int(self.headers['Content-Length'])).decode()
         response = methods.dispatch(request)
+
         # Return response
         self.send_response(response.http_status)
         self.send_header('Content-type', 'application/json')
@@ -40,5 +42,4 @@ class TestHttpServer(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    HTTPServer(('localhost', 5000), TestHttpServer).serve_forever()
-    api = ipfsapi.connect('127.0.0.1', 5001)
+    HTTPServer(('localhost', 5000), IpfsHttpServer).serve_forever()
