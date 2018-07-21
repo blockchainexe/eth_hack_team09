@@ -19,4 +19,4 @@ def predict_length(filename,predict_time):
     predicted = result.predict(len(data.index),len(data.index)+predict_time)
     print(predicted)
 
-#predict_length('./nile.csv',100)
+#predict_length('./data.csv',100)
