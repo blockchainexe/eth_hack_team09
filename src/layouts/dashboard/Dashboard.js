@@ -12,7 +12,6 @@ class Dashboard extends Component {
     return(
       <main className="container">
         <div className="pure-g">
-
         <div
               style={{
                 display: "inline-block",
@@ -20,10 +19,10 @@ class Dashboard extends Component {
                 padding: 30,
                 width:"980px"
               }}
-            >
+         >
           <div className="pure-u-1-1">
             <h1>Dashboard</h1>
-            <img src={avatar} 
+            <img src={avatar}
               style={{
                 border: "2px solid #FFF",
                 borderRadius: 99999,
@@ -32,31 +31,64 @@ class Dashboard extends Component {
               }}
             />
             <h2>{this.props.authData.name}</h2>
-            <h3>phone:{this.props.authData.phone}</h3>
-            <h3>email: {this.props.authData.email}</h3>
-            <p><strong>Congratulations {this.props.authData.name} from {this.props.authData.country}!</strong> If you're seeing this page, you've logged in with UPort successfully.</p>
             <div
               style={{
                 display: "inline-block",
                 float:"left",
-                width:"40%"
+                width:"25%"
               }}
-            >
-              <h3>Generate Attestation</h3>
-              <AttestationForm/>
+      >
+      <h3>phone:{this.props.authData.phone}</h3>
+      <h3>email: {this.props.authData.email}</h3>
             </div>
             <div
               style={{
+                marginTop: "-250px",
                 display: "inline-block",
                 float:"left",
-                width:"40%"
+                width:"70%"
               }}
             >
-
-              <h3>Send Quick Pass Token -1</h3>
-              <TransactionRequestForm/>
+              <h2> My Quick-Pass Tokens </h2>
+              <table>
+                <tr>
+                  <th>Spot Name</th>
+                  <th>Quick-Pass Amount</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td> Yajima (Sushi restaurant)</td>
+                  <td>1</td>
+                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                </tr>
+                <tr>
+                  <td> Ippudo (Noodle restaurant)</td>
+                  <td>1</td>
+                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                </tr>
+                <tr>
+                  <td> Yajima (Sushi restaurant)</td>
+                  <td>1</td>
+                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                </tr>
+                <tr>
+                  <td> SkyTree (Tourist Spot)</td>
+                  <td>1</td>
+                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                </tr>
+                <tr>
+                  <td> Tempura Kondo (Tempura restaurant)</td>
+                  <td>1</td>
+                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                </tr>
+                <tr>
+                  <td> Cure Maid Cafe (Cafe)</td>
+                  <td>1</td>
+                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                </tr>
+              </table>
             </div>
-          </div>
+        </div>
         </div>
         </div>
       </main>
