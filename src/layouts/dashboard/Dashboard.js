@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import AttestationForm from '../AttestationForm'
 import TransactionRequestForm from '../TransactionRequestForm'
+import { decode } from 'mnid'
+
 class Dashboard extends Component {
   constructor(props, { authData }) {
     super(props)
@@ -9,6 +11,10 @@ class Dashboard extends Component {
 
   render() {
     const avatar = this.props.authData.avatar && this.props.authData.avatar.uri
+    const addressDecode = decode(this.props.authData.address)
+    console.log('==== addressDecode ====')
+    console.log(addressDecode.address)
+
     return(
       <main className="container">
         <div className="pure-g">
@@ -50,6 +56,7 @@ class Dashboard extends Component {
               }}
             >
               <h2> My Quick-Pass Tokens </h2>
+              <h4> Wallet Address: {addressDecode.address} </h4>
               <table>
                 <tr>
                   <th>Spot Name</th>
