@@ -11,8 +11,19 @@ body,
     display:block;
 }
 
+.fit {
+    max-width: 100%;
+    max-height: 99%;
+}
 
-h1, h2, h3 {
+h1 {
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-weight: bold;
+    color: #eb4d4b;
+    font-size: 36px;
+}
+
+h2, h3 {
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
 }
 
@@ -26,7 +37,7 @@ pre {
 .container {
   box-sizing: border-box;
   width: 100%;
-  padding: 45px 20px;
+  padding: 45px 0px;
 }
 
 .pure-button-primary {
