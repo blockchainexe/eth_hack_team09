@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import Modal from 'react-modal'
 import { decode } from 'mnid'
 import settings from './../../util/settings.js'
 import { uport, web3 } from './../../util/connectors.js'
@@ -9,10 +11,51 @@ import QPT_4 from '../../json/QPT-4.json'
 import QPT_5 from '../../json/QPT-5.json'
 import QPT_6 from '../../json/QPT-6.json'
 
+const customStyles = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(44, 62, 80, 0.75)'
+  },
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
+Modal.setAppElement('#root')
+
 class Dashboard extends Component {
   constructor(props, { authData }) {
     super(props)
     authData = this.props
+
+    this.state = {
+      modalIsOpen: false
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  afterOpenModal() {
+    this.subtitle.style.color = '#e74c3c';
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
   }
 
   render() {
@@ -96,6 +139,19 @@ class Dashboard extends Component {
 
     return(
       <main className="container">
+
+      <Modal
+        isOpen={this.state.modalIsOpen}
+        onAfterOpen={this.afterOpenModal}
+        onRequestClose={this.closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <h2 ref={subtitle => this.subtitle = subtitle}>Quick-Pass</h2>
+        <div>Now you can skip the line.</div>
+        <button className="button button2" onClick={this.closeModal}>close</button>
+      </Modal>
+
       <div className="pure-g">
       <div
       style={{
@@ -145,32 +201,32 @@ class Dashboard extends Component {
       <tr>
       <td> Yajima (Sushi restaurant)</td>
       <td>{amount1}</td>
-      <td><button className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> Ippudo (Noodle restaurant)</td>
       <td>1</td>
-      <td><button className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> SkyTree (Tourist Spot)</td>
       <td>1</td>
-      <td><button className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> Tempura Kondo (Tempura restaurant)</td>
       <td>1</td>
-      <td><button className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> Kabuki (Entertainment)</td>
       <td>1</td>
-      <td><button className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> Cure Maid Cafe (Cafe)</td>
       <td>1</td>
-      <td><button className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       </table>
       </div>
