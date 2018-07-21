@@ -27,7 +27,7 @@ ReactDOM.render((
           <IndexRoute component={Home} />
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
           <Route path="profile" component={UserIsAuthenticated(Profile)} />
-          <Route path="market" component={UserIsAuthenticated(Market)} />
+          <Route path="market" component={Market} />
         </Route>
       </Router>
       </V0MuiThemeProvider>
