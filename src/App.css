@@ -39,7 +39,7 @@ pre {
 .navbar {
   position: fixed;
   padding: 5px;
-  background: #0c1a2b;
+  background: #e74c3c;
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
 }
 
@@ -50,7 +50,7 @@ pre {
 .navbar a:active,
 .navbar a:focus,
 .navbar a:hover {
-  background: #233e5e;
+  background: #c0392b;
 }
 
 .navbar .pure-menu-heading {
