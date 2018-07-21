@@ -3,10 +3,10 @@ Reduce your waiting time for popular tourist spots!
 
 ## eth_hack_team09
 チームメンバー
-佐野 博之（NTTドコモ）
-小西 哲平（NTTドコモ）
-竹本 哲郎（イネーザ）
-落合 庸介（イネーザ）
+- 佐野 博之（NTTドコモ）
+- 小西 哲平（NTTドコモ）
+- 竹本 哲郎（イネーザ）
+- 落合 庸介（イネーザ）
 
 ## アイデア
 ### 課題
