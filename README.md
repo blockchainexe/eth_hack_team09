@@ -23,3 +23,10 @@ Reduce your waiting time for popular tourist spots!
 
 ### その他の売り
 列の長さに応じてトークン料をAIで最適化
+
+### getstart
+```
+yarn
+
+yarn start
+```
