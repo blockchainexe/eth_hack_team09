@@ -1,29 +1,87 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import qptImage from '../img/image.json';
+
+const cardSize = {
+  width: '21vw',
+  margin: '24px'
+}
+
+const QPTcard = (props) => (
+      <Card style={ cardSize }>
+        <CardMedia>
+          <img src={ props.imageUrl } alt={ props.name } style={{ height: '200px' }} />
+        </CardMedia>
+        <CardHeader
+          title={ props.tokenName }
+          subtitle={ props.shopName }
+          avatar={ props.imageUrl }
+        />
+        <CardText>
+          {props.description}
+        </CardText>
+        <CardActions>
+          <FlatButton label="購入" />
+          <FlatButton label="詳細" />
+        </CardActions>
+      </Card>
+)
+
+const cardsWrap = {
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  alineItems: 'center',
+  padding: '36px'
+}
 
 const QPTcards = () => (
-  <Card style={ {width: '18vw', margin: '8px'}  }>
-    <CardMedia>
-      <img src="https://github.com/truffle-box/react-uport-box/blob/master/box-img-lg.png?raw=true" alt="" />
-    </CardMedia>
-    <CardHeader
-      title="QPT-1"
-      subtitle="Subtitle"
-      avatar="https://github.com/truffle-box/react-uport-box/blob/master/box-img-lg.png?raw=true"
+   <div style={cardsWrap} >
+    <QPTcard 
+      imageUrl={ qptImage.sushi[0].url }
+      name={ qptImage.sushi[0].name }
+      tokenName="sushiQPT-1"
+      shopName="Yajima"
+      description="とても美味しいお寿司です。"
+      />
+    <QPTcard 
+      imageUrl={ qptImage.skytree[0].url }
+      name={ qptImage.skytree[0].name }
+      tokenName="skytreeQPT-2"
+      shopName="SkyTree"
+      description="とても高いです。"
     />
-    {/* <CardTitle title="Card" subtitle="Card subtitle" /> */}
-    <CardText>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-    </CardText>
-    <CardActions>
-      <FlatButton label="Action1" />
-      <FlatButton label="Action2" />
-    </CardActions>
-  </Card>
+    <QPTcard 
+      imageUrl={ qptImage.noodle[0].url }
+      name={ qptImage.noodle[0].name }
+      tokenName="noodleQPT-3"
+      shopName="Ippudo"
+      description="とてもアツいです。"
+    />
+    <QPTcard 
+      imageUrl={ qptImage.tempura[0].url }
+      name={ qptImage.tempura[0].name }
+      tokenName="tempuraQPT-4"
+      shopName="Tempura-tensei"
+      description="とても高級です。"
+    />
+    <QPTcard 
+      imageUrl={ qptImage.kabuki[0].url }
+      name={ qptImage.kabuki[0].name }
+      tokenName="kabukiQPT-5"
+      shopName="Kabuki"
+      description="とても歌舞伎です。"
+    />
+    <QPTcard 
+      imageUrl={ qptImage.maid[0].url }
+      name={ qptImage.maid[0].name }
+      tokenName="maidQPT-6"
+      shopName="Maid-Cafe"
+      description="とてもかわいいです。"
+    />
+   </div>
 );
 
 export default QPTcards
