@@ -1,5 +1,6 @@
 import { uport } from './../../../util/connectors.js'
 import { browserHistory } from 'react-router'
+import { decode } from 'mnid'
 
 export const USER_LOGGED_IN = 'USER_LOGGED_IN'
 function userLoggedIn(user) {
@@ -18,6 +19,10 @@ export function loginUser() {
       notifications: true // We want this if we want to recieve credentials
     }).then((credentials) => {
       dispatch(userLoggedIn(credentials))
+
+      // const addressDecode = decode(credentials.address)
+      // console.log('==== addressDecode ====')
+      // console.log(addressDecode)
 
       // Used a manual redirect here as opposed to a wrapper.
       // This way, once logged in a user can still access the home page.
