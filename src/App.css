@@ -2,8 +2,15 @@
 
 body,
 .pure-g [class*=pure-u] {
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
+
+.home-content{
+    font-family: 'Open Sans', sans-serif;
+    text-align:center;
+    display:block;
+}
+
 
 h1, h2, h3 {
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
@@ -65,4 +72,11 @@ pre {
 .navbar .uport-logo {
   height: 16px;
   margin-right: 10px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
