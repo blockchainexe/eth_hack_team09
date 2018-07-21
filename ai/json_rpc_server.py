@@ -8,15 +8,14 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from jsonrpcserver import methods
 
 @methods.add
-def call_func(inference_function_hash, data_csv_hash):
+def call_func(inference_function_hash, data_csv_hash, predict_time):
     api = ipfsapi.connect('127.0.0.1', 5001)
-    model_function = api.cat(inference_function_hash).decode()
-    exec(model_function, globals())
+    inference_function = api.cat(inference_function_hash).decode()
+    exec(inference_function, globals())
 
     data_csv = StringIO(api.cat(data_csv_hash).decode())
-    df = pd.read_csv(data_csv, header=None)
 
-    function_output = inference(df).to_csv(index=False, header=False)
+    function_output = predict_length(data_csv, predict_time).to_csv(index=True, header=False)
 
     result = {
         'date': datetime.now().strftime("%Y/%m/%d %H:%M:%S"),
