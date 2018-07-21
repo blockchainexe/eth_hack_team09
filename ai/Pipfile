@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 ipfsapi = "*"
+pandas = "*"
+statsmodels = "*"
+scipy = "*"
+jsonrpcserver = "*"
 
 [dev-packages]
 
