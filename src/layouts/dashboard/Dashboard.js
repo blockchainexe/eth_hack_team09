@@ -53,7 +53,7 @@ class Dashboard extends Component {
               }}
             >
 
-              <h3>Send ERC20 PAK Token</h3>
+              <h3>Send Quick Pass Token -1</h3>
               <TransactionRequestForm/>
             </div>
           </div>

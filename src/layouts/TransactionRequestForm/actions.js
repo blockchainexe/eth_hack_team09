@@ -1,4 +1,4 @@
-import ERC20 from './ERC20ABI.json'
+import ERC20 from './QPT_ABI.json'
 import { uport } from './../../util/connectors.js'
 import settings from './../../util/settings.js'
 import { browserHistory } from 'react-router'
@@ -17,6 +17,6 @@ export function transactionRequest(data) {
     const contractInstance = uport.contract(ERC20)
     const contract = contractInstance.at(settings.erc20Address)
     // contract.transfer(data.ethAddress, 500);
-    return !data.ethAddress ? null : contract.transfer(data.ethAddress, 500);
+    return !data.ethAddress ? null : contract.transfer(data.ethAddress, 100);
   }
 }
