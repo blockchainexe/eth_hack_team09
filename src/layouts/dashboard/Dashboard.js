@@ -27,7 +27,7 @@ class Dashboard extends Component {
                 border: "2px solid #FFF",
                 borderRadius: 99999,
                 boxShadow: "2px 3px 1px #000",
-                width:"110px"
+                width:"150px"
               }}
             />
             <h2>{this.props.authData.name}</h2>
@@ -43,7 +43,7 @@ class Dashboard extends Component {
             </div>
             <div
               style={{
-                marginTop: "-250px",
+                marginTop: "-300px",
                 display: "inline-block",
                 float:"left",
                 width:"70%"
@@ -59,32 +59,32 @@ class Dashboard extends Component {
                 <tr>
                   <td> Yajima (Sushi restaurant)</td>
                   <td>1</td>
-                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                  <td><button className="button button1">Use Quick-Pass Token</button></td>
                 </tr>
                 <tr>
                   <td> Ippudo (Noodle restaurant)</td>
                   <td>1</td>
-                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                  <td><button className="button button1">Use Quick-Pass Token</button></td>
                 </tr>
                 <tr>
                   <td> Yajima (Sushi restaurant)</td>
                   <td>1</td>
-                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                  <td><button className="button button1">Use Quick-Pass Token</button></td>
                 </tr>
                 <tr>
                   <td> SkyTree (Tourist Spot)</td>
                   <td>1</td>
-                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                  <td><button className="button button1">Use Quick-Pass Token</button></td>
                 </tr>
                 <tr>
                   <td> Tempura Kondo (Tempura restaurant)</td>
                   <td>1</td>
-                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                  <td><button className="button button1">Use Quick-Pass Token</button></td>
                 </tr>
                 <tr>
                   <td> Cure Maid Cafe (Cafe)</td>
                   <td>1</td>
-                  <td><button type="button" onclick="alert('Done')">Use Quick-Pass Token</button></td>
+                  <td><button className="button button1">Use Quick-Pass Token</button></td>
                 </tr>
               </table>
             </div>
