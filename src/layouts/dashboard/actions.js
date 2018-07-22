@@ -33,6 +33,7 @@ export function useQptRequest(qptNum) {
      const contractInstance = uport.contract(qptContract[qptNum].abi)
      const contract = contractInstance.at(qptContract[qptNum].contract)
     // contract.transfer(data.ethAddress, 500);
+    
     // yosuke's eth address 
      return contract.transfer('0xaae900BAe6d741b3cD4aD9a0b07A21413420Ce0c', 100);
   }

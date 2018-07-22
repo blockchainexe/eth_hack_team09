@@ -8,6 +8,8 @@ const cardSize = {
   margin: '24px'
 }
 
+const chart = "https://s3-ap-northeast-1.amazonaws.com/lp.pon.gospot.site/hackathon/%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88.png"
+
 const QPTcard = (props) => (
       <Card style={ cardSize }>
         <CardMedia>
