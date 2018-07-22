@@ -40,6 +40,11 @@ class IpfsHttpServer(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(str(response).encode())
 
+    def do_OPTIONS(self):
+        self.send_response(200, "ok")
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST')
+        self.send_header("Access-Control-Allow-Headers", "*")
 
 if __name__ == '__main__':
     HTTPServer(('localhost', 5000), IpfsHttpServer).serve_forever()
