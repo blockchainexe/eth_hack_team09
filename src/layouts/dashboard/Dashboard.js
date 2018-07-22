@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import ReactDOM from 'react-dom'
 import Modal from 'react-modal'
 import { decode } from 'mnid'
@@ -10,6 +11,7 @@ import QPT_3 from '../../json/QPT-3.json'
 import QPT_4 from '../../json/QPT-4.json'
 import QPT_5 from '../../json/QPT-5.json'
 import QPT_6 from '../../json/QPT-6.json'
+import { useQptRequest } from './actions'
 
 const customStyles = {
   overlay: {
@@ -38,12 +40,23 @@ class Dashboard extends Component {
     authData = this.props
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      tokenNum: '0' // use for useQptRequest
     };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.changeToken = this.changeToken.bind(this);
+  }
+
+  submit = (value, state, props)=>{
+    props.useQptRequest(value)
+  }
+
+  changeToken(value) {
+    this.setState({tokenNum: value})
+    this.setState({modalIsOpen: true})
   }
 
   openModal() {
@@ -62,6 +75,7 @@ class Dashboard extends Component {
     const avatar = this.props.authData.avatar && this.props.authData.avatar.uri
     const addressDecode = decode(this.props.authData.address)
 
+    
     // Contract
 
     var amount1 = 0;
@@ -137,6 +151,8 @@ class Dashboard extends Component {
       }
     });
 
+    const { useQptRequest } = this.props
+
     return(
       <main className="container">
 
@@ -150,6 +166,7 @@ class Dashboard extends Component {
         <h2 ref={subtitle => this.subtitle = subtitle}>Quick-Pass</h2>
         <div>Now you can skip the line.</div>
         <button className="button button2" onClick={this.closeModal}>close</button>
+        <button className="button button2" onClick={() => {useQptRequest(this.state.tokenNum)}}>send token</button>
       </Modal>
 
       <div className="pure-g">
@@ -201,32 +218,32 @@ class Dashboard extends Component {
       <tr>
       <td> Yajima (Sushi restaurant)</td>
       <td>{amount1}</td>
-      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={() => {this.changeToken('0')}} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> Ippudo (Noodle restaurant)</td>
       <td>1</td>
-      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={() => {this.changeToken('1')}} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> SkyTree (Tourist Spot)</td>
       <td>1</td>
-      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={() => {this.changeToken('2')}} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> Tempura Kondo (Tempura restaurant)</td>
       <td>1</td>
-      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={() => {this.changeToken('3')}} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> Kabuki (Entertainment)</td>
       <td>1</td>
-      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={() => {this.changeToken('4')}} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       <tr>
       <td> Cure Maid Cafe (Cafe)</td>
       <td>1</td>
-      <td><button onClick={this.openModal} className="button button1">Use Quick-Pass Token</button></td>
+      <td><button onClick={() => {this.changeToken('5')}} className="button button1">Use Quick-Pass Token</button></td>
       </tr>
       </table>
       </div>
@@ -238,4 +255,20 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard
+const mapStateToProps = (state, props) => {
+  console.log(state)
+  return {
+    state
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    useQptRequest: (value) => { 
+      event.preventDefault();
+      dispatch(useQptRequest(value))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
