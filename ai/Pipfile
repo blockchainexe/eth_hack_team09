@@ -9,6 +9,7 @@ pandas = "*"
 statsmodels = "*"
 scipy = "*"
 jsonrpcserver = "*"
+sklearn = "*"
 
 [dev-packages]
 

@@ -5,6 +5,18 @@ $ ipfs init
 $ ./save_on_ipfs.sh
 $ ipfs daemon
 ```
+
+```
+added QmRWSKSZVVkvQsnE4V6kavKoAMabHBDJM29EPstzq4cCtQ predict_row.py
+added QmeTKajqCKFoKUmWEj8h2ACiG9BUDKPPNYiLBoup1Uewuf row_data0.txt
+added Qmef2eXa2JnpXhD6W92ciThVyK8uE3gZPvqaNjxhM6uBtF row_data1.txt
+added QmS3LsDpJMfKGAGkwZJ853mgvbbX1xjXRbHkM3uaiMnGHt row_data2.txt
+added QmWNsqYJNSW5rsXt2iqL8Gq1Fx5BYNjR8NzuLSNwEgvdyd row_data3.txt
+added QmRBxkR6nsrko6qdprbLttz2hzeFo3ibuPS5nkCSH2yzaA row_data4.txt
+added QmPHPHeVmmtpCAVU1gvJoLQ7aqWoGhvtH84YhyRwdCZQU5 row_data5.txt
+```
+
+```
 ## Pythonの準備
 ```
 $ brew install pipenv pyenv
@@ -22,12 +34,12 @@ curlで手っ取り早く叩くなら、こう。
 ```
 curl -X "POST" "http://127.0.0.1:5000/call_func" \
   -H "Content-Type: application/json" \
-  -d $'{"jsonrpc": "2.0", "method": "call_func", "params": ["Qme7kSavPqjAE1nvW1GTAbq1ztAmiawHLEzpBCQ6zJaVVn", "Qma23jSD6SbojPKKyfzx9EfkGujM1BR65HuUk6kvyYaRmr", 10], "id": 1}'
+  -d $'{"jsonrpc": "2.0", "method": "call_func", "params": ["QmRWSKSZVVkvQsnE4V6kavKoAMabHBDJM29EPstzq4cCtQ", "QmeTKajqCKFoKUmWEj8h2ACiG9BUDKPPNYiLBoup1Uewuf", 1, 11], "id": 1}'
 ```
 
 それぞれのデータの中身は下記みたいな感じ。
-- [Qme7kSavPqjAE1nvW1GTAbq1ztAmiawHLEzpBCQ6zJaVVn](https://gateway.ipfs.io/ipfs/Qme7kSavPqjAE1nvW1GTAbq1ztAmiawHLEzpBCQ6zJaVVn)
-- [Qma23jSD6SbojPKKyfzx9EfkGujM1BR65HuUk6kvyYaRmr](https://gateway.ipfs.io/ipfs/Qma23jSD6SbojPKKyfzx9EfkGujM1BR65HuUk6kvyYaRmr)
+- [QmRWSKSZVVkvQsnE4V6kavKoAMabHBDJM29EPstzq4cCtQ](https://gateway.ipfs.io/ipfs/QmRWSKSZVVkvQsnE4V6kavKoAMabHBDJM29EPstzq4cCtQ)
+- [QmeTKajqCKFoKUmWEj8h2ACiG9BUDKPPNYiLBoup1Uewuf](https://gateway.ipfs.io/ipfs/QmeTKajqCKFoKUmWEj8h2ACiG9BUDKPPNYiLBoup1Uewuf)
 
 ## 実行結果
 

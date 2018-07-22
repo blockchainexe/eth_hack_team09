@@ -1,3 +1,3 @@
 #!/bin/sh
 ipfs add predict_row.py
-ipfs add data.csv
+ipfs add row_data*.txt
