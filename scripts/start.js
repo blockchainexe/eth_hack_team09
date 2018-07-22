@@ -199,6 +199,7 @@ function addMiddleware(devServer) {
         }
       },
       onError: onProxyError(proxy),
+      target: 'http://localhost:5000',
       secure: false,
       changeOrigin: true,
       ws: true

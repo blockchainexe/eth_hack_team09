@@ -42,9 +42,10 @@ class IpfsHttpServer(BaseHTTPRequestHandler):
 
     def do_OPTIONS(self):
         self.send_response(200, "ok")
+        self.send_header('Access-Control-Allow-Credentials', 'true')
         self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'POST')
-        self.send_header("Access-Control-Allow-Headers", "*")
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header("Access-Control-Allow-Headers", "X-Requested-With, Content-type")
 
 if __name__ == '__main__':
     HTTPServer(('localhost', 5000), IpfsHttpServer).serve_forever()
